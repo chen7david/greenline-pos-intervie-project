@@ -1,8 +1,6 @@
 import type { Knex } from "knex";
 import { join } from 'path'
-import config from '../../config/development'
-
-console.log({config})
+import config from '../../config/default'
 
 const databaseConfig: { [key: string]: Knex.Config } = {
   development: {
