@@ -9,7 +9,9 @@ export interface IPaginate<T> {
 }
 
 
-export function paginate<T>(arr: T[], page: number, limit: number = 10): IPaginate<T> {
+export function paginate<T>(arr: T[], page: any, limit: any): IPaginate<T> {
+    page = parseInt(<string>page) || 1
+    limit = parseInt(<string>limit) || 10
     const MAX_LIMIT = 30
     const take = limit > MAX_LIMIT ? MAX_LIMIT : limit
     const skip = (page - 1) * take

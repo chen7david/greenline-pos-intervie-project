@@ -5,7 +5,7 @@ import { paginate, IPaginate } from '../utils/paginate.utility'
 export default <T extends ModelClass<any>>(model: T) => ({
 
 
-    async find(page: number, limit?: number): Promise<IPaginate<T>> {
+    async find(page: any, limit?: any): Promise<IPaginate<T>> {
         const items = await model.query()
         return paginate(items, page, limit)
     },
