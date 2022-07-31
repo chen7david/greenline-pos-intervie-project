@@ -11,8 +11,13 @@ export default <T extends ModelClass<any>>(model: T) => ({
     },
 
 
-    async findOne(id: number): Promise<InstanceType<T> | null> {
-        return model.query().where('id', id).first()
+    async findOne(id: number | string): Promise<InstanceType<T> | null> {
+        return this.findOneByKey('id', id)
+    },
+
+
+    async findOneByKey(key: string, value: string | number): Promise<InstanceType<T> | null> {
+        return model.query().where(key, value).first()
     },
 
 
@@ -21,14 +26,14 @@ export default <T extends ModelClass<any>>(model: T) => ({
     },
 
 
-    async patch(id: number, data: object) {
+    async patch(id: number | string, data: object) {
         const instance = await this.findOne(id)
         if (!instance) throw (new Error('invalid id'))
         return instance.$query().patch(data)
     },
-    
 
-    async delete(id: number): Promise<number> {
+
+    async delete(id: number | string): Promise<number> {
         const instance = await this.findOne(id)
         if (!instance) throw (new Error('invalid id'))
         return instance.$query().delete()

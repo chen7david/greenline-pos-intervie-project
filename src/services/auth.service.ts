@@ -1,6 +1,6 @@
 import Token, { JwtPayload } from 'jsonwebtoken'
 import config from '../../config/default'
-
+import { ApiError } from '../utils/error.utility'
 
 export function signAccessToken(payload: object): string {
     return Token.sign(
@@ -23,7 +23,7 @@ export function signRefreshToken(payload: object): string {
 export function verifyAccessToken(token: string): JwtPayload {
     const payload = Token.verify(token, config.security.token.access.secret)
     if (typeof payload == 'string' || payload.constructor !== Object) {
-        throw (new Error('invalid access token'))
+        throw (ApiError.authorization('invalid access token'))
     }
     return payload
 }
@@ -32,7 +32,7 @@ export function verifyAccessToken(token: string): JwtPayload {
 export function verifyRefreshToken(token: string): JwtPayload {
     const payload = Token.verify(token, config.security.token.refresh.secret)
     if (typeof payload == 'string' || payload.constructor !== Object) {
-        throw (new Error('invalid access token'))
+        throw (ApiError.authorization('invalid access token'))
     }
     return payload
 }

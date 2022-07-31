@@ -5,10 +5,19 @@
 +--------+-------------------------+
   Method | URI
 +--------+-------------------------+
-  GET    | /users
-  POST   | /users
-  GET    | /users/:id
-  PATCH  | /users/:id
-  DELETE | /users/:id
+  GET    | /api/users
+  POST   | /api/users
+  GET    | /api/users/:id
+  PATCH  | /api/users/:id
+  DELETE | /api/users/:id
++--------+-------------------------+
+
+
+### Auth
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  POST   | /api/auth/login
+  POST   | /api/auth/refresh
 +--------+-------------------------+
 ```
