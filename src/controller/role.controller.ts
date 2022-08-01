@@ -13,6 +13,7 @@ export async function find(req: Request, res: Response): Promise<void> {
 export async function findOne(req: Request, res: Response): Promise<void> {
     const id: string = req.params.id
     const instance = await roleService.findOne(id)
+    if(!instance) throw(ApiError.badRequest('invalid id'))
     res.json(instance)
 }
 
@@ -37,4 +38,15 @@ export async function remove(req: Request, res: Response): Promise<void> {
     const id: string = req.params.id
     const success = await roleService.delete(id) ? true : false
     res.json({ success })
+}
+
+
+/* CUSTOM */
+
+
+export async function rolenameIsAvailable(req: Request, res: Response): Promise<void> {
+    const { name } = req.params
+    let available: boolean = true
+    if (name) available = await roleService.findOneByRolername(name) ? false : true
+    res.json({ available })
 }

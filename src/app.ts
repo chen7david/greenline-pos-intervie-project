@@ -3,7 +3,7 @@ import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import url from 'url'
-import { userRoutes, authRoutes } from './routes/index.routes'
+import * as router from './routes/index.routes'
 import { expressErrorHandler } from './utils/error.utility'
 
 const app = express()
@@ -14,8 +14,11 @@ app.use(morgan('dev'))
 app.use(helmet())
 
 /* ROUTES */
-app.use('/api', userRoutes)
-app.use('/api', authRoutes)
+app.use('/api', router.authRoutes)
+app.use('/api', router.companyRoutes)
+app.use('/api', router.userRoutes)
+app.use('/api', router.roleRoutes)
+app.use('/api', router.permissionRoutes)
 app.use(expressErrorHandler)
 
 app.listen(config.server.port, () => {

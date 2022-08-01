@@ -2,6 +2,7 @@ import companyService from "../services/company.service";
 import { Request, Response } from 'express'
 import { ApiError } from "../utils/error.utility";
 
+
 export async function find(req: Request, res: Response): Promise<void> {
     let { page, limit } = req.query
     const items = await companyService.find(page, limit)
@@ -12,6 +13,7 @@ export async function find(req: Request, res: Response): Promise<void> {
 export async function findOne(req: Request, res: Response): Promise<void> {
     const id: string = req.params.id
     const instance = await companyService.findOne(id)
+    if(!instance) throw(ApiError.badRequest('invalid id'))
     res.json(instance)
 }
 
@@ -36,4 +38,13 @@ export async function remove(req: Request, res: Response): Promise<void> {
     const id: string = req.params.id
     const success = await companyService.delete(id) ? true : false
     res.json({ success })
+}
+
+/* CUSTOM */
+
+export async function companynameIsAvailable(req: Request, res: Response): Promise<void> {
+    const { name } = req.params
+    let available: boolean = true
+    if (name) available = await companyService.findOneByCompanyname(name) ? false : true
+    res.json({ available })
 }
