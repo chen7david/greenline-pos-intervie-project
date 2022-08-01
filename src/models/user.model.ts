@@ -4,6 +4,7 @@ import Company from './company.model'
 import Model from './base.model'
 import Role from './role.model'
 import bcrypt from 'bcrypt'
+import Address from './address.model'
 const BCRYPT_ROUNDS = 12
 
 class User extends Model {
@@ -12,8 +13,9 @@ class User extends Model {
     id!: number;
     user_id: string;
     username: string;
+    email: string;
     password: string;
-    status?: string;
+    status?: string; // inactive, active, disabled, deleted
 
 
     async $beforeInsert(context: QueryContext): Promise<void> {
@@ -73,8 +75,18 @@ class User extends Model {
             },
 
 
+            addressed: {
+                relation: Model.HasManyRelation,
+                modelClass: Address,
+                join: {
+                    from: 'users.id',
+                    to: 'addresses.user_id',
+                }
+            },
+
+
         }
-        
+
     }
 
 }

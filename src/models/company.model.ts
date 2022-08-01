@@ -3,6 +3,7 @@ import { QueryContext } from 'objection'
 import { uuid } from '../utils/crypto.utility'
 import User from './user.model'
 import Role from './role.model'
+import Product from './product.model'
 
 
 class Company extends Model {
@@ -21,7 +22,7 @@ class Company extends Model {
 
 
     static get relationMappings() {
-        
+
 
         return {
 
@@ -42,6 +43,16 @@ class Company extends Model {
                 join: {
                     from: 'companies.id',
                     to: 'roles.company_id',
+                }
+            },
+
+
+            products: {
+                relation: Model.HasManyRelation,
+                modelClass: Product,
+                join: {
+                    from: 'companies.id',
+                    to: 'products.company_id',
                 }
             },
 

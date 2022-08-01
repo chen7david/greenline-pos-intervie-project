@@ -9,6 +9,7 @@ export async function up(knex: Knex): Promise<void> {
         table.float('total_price').notNullable()
         table.text('notes')
         table.integer('user_id').references('id').inTable('users').onDelete('CASCADE').index().notNullable()
+        table.integer('address_id').references('id').inTable('addresss').onDelete('CASCADE').index().notNullable()
         table.integer('company_id').references('id').inTable('companies').onDelete('CASCADE').index().notNullable()
         table.timestamps(true, true)
     })
