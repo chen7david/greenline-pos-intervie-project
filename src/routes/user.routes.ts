@@ -2,7 +2,6 @@ import Router from 'express-promise-router'
 import * as userController from '../controller/user.controller'
 import { loadAuthenticated } from '../middleware/auth.middleware'
 import { createUser, patchUser, validator } from '../middleware/validation.middleware'
-import { createValidator } from 'express-joi-validation'
 
 const router = Router()
 
