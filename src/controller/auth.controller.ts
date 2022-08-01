@@ -7,9 +7,9 @@ import { ApiError } from "../utils/error.utility";
 export async function login(req: Request, res: Response): Promise<void> {
     const { username, password } = req.body
     const user = await userService.findOneByUsername(username)
-    if (!user) throw (ApiError.badRequest('invalid username'))
+    if (!user) throw (ApiError.invalidUsername(req.body))
     if (!await userService.verifyPassword(user, password))
-    throw (ApiError.badRequest('invalid password'))
+    throw (ApiError.invalidPassword(req.body))
     const payload = { user_id: user.id }
     res.json({
         user: user,

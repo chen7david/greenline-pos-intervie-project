@@ -1,7 +1,7 @@
 # USERS
 @port = 3000
 @accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJpYXQiOjE2NTkyNzY2NjIsImV4cCI6MTY1OTI3NzU2Mn0.RtqnlDniwvfGHdAWpFHcDVrRhAG5RMb6a2Epe8kOh3g
-@userId = 1
+@userId = 6
 @page = 1
 @limit = 2
 
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
     "username": "luckycat",
-    "password": "mybirthday"
+    "password": "yourbirthday"
 }
 
 

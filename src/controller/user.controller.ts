@@ -3,7 +3,6 @@ import { Request, Response } from 'express'
 import { ApiError } from "../utils/error.utility";
 
 export async function find(req: Request, res: Response): Promise<void> {
-    console.log(res.locals)
     let { page, limit } = req.query
     const items = await userService.find(page, limit)
     res.json(items)
@@ -37,4 +36,14 @@ export async function remove(req: Request, res: Response): Promise<void> {
     const id: string = req.params.id
     const success = await userService.delete(id) ? true : false
     res.json({ success })
+}
+
+
+/* CUSTOM */
+
+export async function usernameIsAvailable(req: Request, res: Response): Promise<void> {
+    const { username } = req.params
+    let available: boolean = true
+    if (username) available = await userService.findOneByUsername(username) ? false : true
+    res.json({ available })
 }

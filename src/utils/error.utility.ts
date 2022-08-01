@@ -1,7 +1,9 @@
+import { invalidPasswordSchemaError, invalidUsernameSchemaError } from '../middleware/validation.middleware'
 import { NextFunction, Request, Response } from "express";
 import { JsonWebTokenError } from 'jsonwebtoken'
 import { ValidationError } from 'joi'
 import { UniqueViolationError } from 'objection'
+
 
 export class ApiError extends Error {
 
@@ -29,6 +31,16 @@ export class ApiError extends Error {
     static validation(message: string) {
         return new ApiError(422, message)
     }
+
+    static invalidUsername(original: object) {
+        const { error } = invalidUsernameSchemaError.validate(original)
+        return error
+    }
+
+    static invalidPassword(original: object) {
+        const { error } = invalidPasswordSchemaError.validate(original)
+        return error
+    }
 }
 
 
@@ -47,7 +59,7 @@ export async function expressErrorHandler(err: Error, req: Request, res: Respons
         return
     } else if (err instanceof UniqueViolationError) {
         const entity = err.columns[0]
-        res.status(422).json({message: `this ${entity} is taken`})
+        res.status(422).json({ message: `this ${entity} is taken` })
         return
     }
     res.status(500).json({ message: 'something went wrong!' })

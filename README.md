@@ -6,6 +6,7 @@
   Method | URI
 +--------+-------------------------+
   GET    | /api/users
+  GET    | /api/username-available?username=some-username
   POST   | /api/users
   GET    | /api/users/:id
   PATCH  | /api/users/:id

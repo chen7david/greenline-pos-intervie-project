@@ -1,11 +1,11 @@
 import Router from 'express-promise-router'
 import * as authController from '../controller/auth.controller'
-import { validator } from '../middleware/validation.middleware'
+import { validator, loginUser } from '../middleware/validation.middleware'
 const router = Router()
 
 
 router
-    .post('/auth/login', authController.login)
+    .post('/auth/login', validator(loginUser), authController.login)
     .post('/auth/refresh', authController.refresh)
 
 
