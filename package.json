@@ -7,6 +7,7 @@
     "test": "jest",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/app.ts",
     "build": "tsc",
+    "start": "npm run build && node dist/src/app.js --production",
     "knex": "./node_modules/.bin/knex --knexfile src/database/knexfile.ts",
     "migrate:up": "npm run knex migrate:up",
     "migrate:down": "npm run knex migrate:down",
@@ -34,6 +35,7 @@
     "@types/pluralize": "^0.0.29",
     "jest": "^28.1.3",
     "nodemon": "^2.0.19",
+    "sqlite3": "^5.0.11",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4",
     "unique-username-generator": "^1.1.1"
@@ -49,7 +51,6 @@
     "knex": "^2.2.0",
     "morgan": "^1.10.0",
     "objection": "^3.0.1",
-    "pluralize": "^8.0.0",
-    "sqlite3": "^5.0.10"
+    "pluralize": "^8.0.0"
   }
 }

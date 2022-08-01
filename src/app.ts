@@ -19,6 +19,6 @@ app.use('/api', authRoutes)
 app.use(expressErrorHandler)
 
 app.listen(config.server.port, () => {
-    console.log("server running at: %s", url.format(config.server))
+    console.log("Server running at: %s", url.format(config.server))
 })
 

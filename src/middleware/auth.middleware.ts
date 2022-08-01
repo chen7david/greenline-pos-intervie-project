@@ -10,15 +10,14 @@ export async function loadAuthenticated(req: Request, res: Response, next: NextF
 
 
     const token = bearerToken.replace('Bearer ', '')
-    const payload = authService.verifyAccessToken(token)
-    if (!payload.user_id) throw (ApiError.authorization('invalid token'))
+    const { user_id } = authService.verifyAccessToken(token)
+    if (!user_id) throw (ApiError.authorization('invalid token'))
 
 
-    const user = await userService.findOne(payload.user_id)
+    const user = await userService.findOne(user_id)
     if (!user) throw (ApiError.authorization('invalid token'))
 
-    
+
     res.locals["$user"] = user
-    console.log({ bearerToken, token, payload, user })
     next()
 }
