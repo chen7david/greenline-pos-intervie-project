@@ -1,6 +1,3 @@
-# greenline-pos-intervie-project
-
-
 # API Technical Skills Assessment
 
 ## Technical Challenge:
@@ -32,13 +29,32 @@ Also, if there are any higher level concepts that you’d want to implement if t
 
 Finally, if you have any GitHub or online samples you think we should see, we'd love to check those out too!
 
-"-----"
+
 ## Check List:
+
+### main criteria:
 - [] Company (should have a name)
 - [] Customer that belong to company (user can only belong to 1 company and should have a name)
 - [] Products (belong to only 1 company, have a name)
 - [] Sales (made up of products)
 
+
+### predural steps:
+- [] write use case
+- [] create list of endpoints
+- [] determine db enties and relationships (ERD)
+- [] create migration schemas
+- [] write models
+- [] write services
+- [] test services
+- [] setup express server
+- [] write controllers
+- [] write routes and mount to server
+- [] test controllers
+- [] add nice to have functionality
+
+
+## Routes:
 ```bash
 ### Auth
 +--------+-------------------------+
@@ -46,6 +62,20 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 +--------+-------------------------+
   POST   | /api/auth/login
   POST   | /api/auth/refresh
++--------+-------------------------+
+```
+
+```bash
+### User
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/users
+  GET    | /api/username-available?username=some-username
+  POST   | /api/users
+  GET    | /api/users/:id
+  PATCH  | /api/users/:id
+  DELETE | /api/users/:id
 +--------+-------------------------+
 ```
 
