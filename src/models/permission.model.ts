@@ -1,11 +1,10 @@
 import Model from './base.model'
-import { QueryContext, ModelOptions } from 'objection'
-import { digits } from '../utils/crypto.utility'
+import { QueryContext, ModelOptions, JSONSchemaType,  } from 'objection'
 import bcrypt from 'bcrypt'
 const BCRYPT_ROUNDS = 12
 
-class User extends Model {
-
+class Permission extends Model {
+    
     id!: number;
     user_id: string;
     username: string;
@@ -14,7 +13,6 @@ class User extends Model {
 
     async $beforeInsert(context: QueryContext): Promise<void> {
         await super.$beforeInsert(context)
-        this.user_id = 'US' + digits(8)
         if (this.password) this.password = await bcrypt
             .hash(this.password, BCRYPT_ROUNDS)
     }
@@ -38,4 +36,4 @@ class User extends Model {
 
 }
 
-export default User
+export default Permission
