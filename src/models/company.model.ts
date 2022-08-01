@@ -1,38 +1,53 @@
 import Model from './base.model'
-import { QueryContext, ModelOptions, JSONSchemaType,  } from 'objection'
-import bcrypt from 'bcrypt'
-const BCRYPT_ROUNDS = 12
+import { QueryContext } from 'objection'
+import { uuid } from '../utils/crypto.utility'
+import User from './user.model'
+import Role from './role.model'
+
 
 class Company extends Model {
-    
+
+
     id!: number;
     company_id: string;
-    username: string;
-    password: string;
-    status?: string;
+    name: string;
+    description: string;
+
 
     async $beforeInsert(context: QueryContext): Promise<void> {
         await super.$beforeInsert(context)
-        if (this.password) this.password = await bcrypt
-            .hash(this.password, BCRYPT_ROUNDS)
+        this.company_id = uuid()
     }
 
-    async $beforeUpdate(opt: ModelOptions, context: QueryContext): Promise<void> {
-        await super.$beforeUpdate(opt, context)
-        if (this.password) this.password = await bcrypt
-            .hash(this.password, BCRYPT_ROUNDS)
-    }
 
-    $formatJson(json: any) {
-        json = super.$formatJson(json)
-        delete json.password
-        return json
-    }
+    static get relationMappings() {
+        
 
-    async verifyPassword(password: string): Promise<boolean> {
-        return bcrypt.compare(password, this.password)
-    }
+        return {
 
+
+            users: {
+                relation: Model.HasManyRelation,
+                modelClass: User,
+                join: {
+                    from: 'companies.id',
+                    to: 'users.company_id',
+                }
+            },
+
+
+            roles: {
+                relation: Model.HasManyRelation,
+                modelClass: Role,
+                join: {
+                    from: 'companies.id',
+                    to: 'roles.company_id',
+                }
+            },
+
+
+        }
+    }
 
 }
 

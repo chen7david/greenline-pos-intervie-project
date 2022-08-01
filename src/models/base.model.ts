@@ -5,9 +5,11 @@ BaseModel.knex(knex)
 
 class Model extends BaseModel {
 
+
     static get tableName(): string {
         return pluralize(this.name.toLowerCase())
     }
+    
     
 }
 

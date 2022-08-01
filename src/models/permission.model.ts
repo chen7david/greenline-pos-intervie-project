@@ -1,38 +1,37 @@
 import Model from './base.model'
-import { QueryContext, ModelOptions, JSONSchemaType,  } from 'objection'
-import bcrypt from 'bcrypt'
-const BCRYPT_ROUNDS = 12
+import Role from './role.model';
 
 class Permission extends Model {
-    
+
     id!: number;
-    user_id: string;
-    username: string;
-    password: string;
-    status?: string;
+    name: string;
+    description: string;
 
-    async $beforeInsert(context: QueryContext): Promise<void> {
-        await super.$beforeInsert(context)
-        if (this.password) this.password = await bcrypt
-            .hash(this.password, BCRYPT_ROUNDS)
+
+    static get relationMappings() {
+
+
+        return {
+
+
+            roles: {
+                relation: Model.ManyToManyRelation,
+                modelClass: Role,
+                join: {
+                    from: 'permissions.id',
+                    to: 'roles.id',
+                    through: {
+                        from: 'role_permissions.permission_id',
+                        to: 'role_permissions.role_id',
+                    }
+                }
+            },
+
+
+        }
+
+
     }
-
-    async $beforeUpdate(opt: ModelOptions, context: QueryContext): Promise<void> {
-        await super.$beforeUpdate(opt, context)
-        if (this.password) this.password = await bcrypt
-            .hash(this.password, BCRYPT_ROUNDS)
-    }
-
-    $formatJson(json: any) {
-        json = super.$formatJson(json)
-        delete json.password
-        return json
-    }
-
-    async verifyPassword(password: string): Promise<boolean> {
-        return bcrypt.compare(password, this.password)
-    }
-
 
 }
 
