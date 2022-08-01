@@ -31,7 +31,7 @@
 - <code>knex</code>: allows you to run knex from subdirectory.
 - <code>migrate:up</code>: migrates db one migration up
 - <code>migrate:down</code>: migrates db one migration down
-- <code>test</code>: 
+- <code>test</code>: runs tests
 
 ### Utilized Modules:
 - <code>express</code>: web-server
