@@ -1,5 +1,38 @@
 # ts-base-project
 
+```bash
+### Auth
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  POST   | /api/auth/login
+  POST   | /api/auth/refresh
++--------+-------------------------+
+```
+
+```bash
+### User
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/users
+  GET    | /api/username-available?username=some-username
+  POST   | /api/users
+  GET    | /api/users/:id
+  PATCH  | /api/users/:id
+  DELETE | /api/users/:id
++--------+-------------------------+
+```
+
+### Node commands:
+- <code>dev</code>: starts server in development mode.
+- <code>start</code>: starts server in production mode.
+- <code>build</code>: creates a dest folder containing our porject in JavaScript
+- <code>knex</code>: allows you to run knex from subdirectory.
+- <code>migrate:up</code>: migrates db one migration up
+- <code>migrate:down</code>: migrates db one migration down
+- <code>test</code>: 
+
 ### Utilized Modules:
 - <code>express</code>: web-server
 - <code>helmet</code>: setting various HTTP headers on express to improve security
@@ -20,26 +53,3 @@
 - <code>ts-node</code>: TypeScript execution engine
 - <code>typescript</code>: adds optional types to JavaScript
 - <code>unique-username-generator</code>: generates unique username for testing
-
-```bash
-### Auth
-+--------+-------------------------+
-  Method | URI
-+--------+-------------------------+
-  POST   | /api/auth/login
-  POST   | /api/auth/refresh
-+--------+-------------------------+
-
-
-### User
-+--------+-------------------------+
-  Method | URI
-+--------+-------------------------+
-  GET    | /api/users
-  GET    | /api/username-available?username=some-username
-  POST   | /api/users
-  GET    | /api/users/:id
-  PATCH  | /api/users/:id
-  DELETE | /api/users/:id
-+--------+-------------------------+
-```
