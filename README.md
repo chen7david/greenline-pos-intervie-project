@@ -1,25 +1,25 @@
 # ts-base-project
 
 ### Utilized Modules:
-- express: web-server
-- helmet: setting various HTTP headers on express to improve security
-- express-promise-router: router
-- jsonwebtoken: jwt
-- knex: query builder
-- sqlite3: db interface client
-- objection: ORM
-- pluralize: package that pluralized noun strings
-- joi: validation
-- dotenv: enviroment variable loading
-- bcrypt: string encryption
-- morgan: HTTP request logger middleware
+- <code>express</code>: web-server
+- <code>helmet</code>: setting various HTTP headers on express to improve security
+- <code>express-promise-router</code>: router
+- <code>jsonwebtoken</code>: jwt
+- <code>knex</code>: query builder
+- <code>sqlite3</code>: db interface client
+- <code>objection</code>: ORM
+- <code>pluralize</code>: package that pluralized noun strings
+- <code>joi</code>: validation
+- <code>dotenv</code>: enviroment variable loading
+- <code>bcrypt</code>: string encryption
+- <code>morgan</code>: HTTP request logger middleware
 
 ### Utilized Development Modules:
-- jest: js testing solution
-- nodemon: automatically restarting node application on file save
-- ts-node: TypeScript execution engine
-- typescript: adds optional types to JavaScript
-- unique-username-generator: generates unique username for testing
+- <code>jest</code>: js testing solution
+- <code>nodemon</code>: automatically restarting node application on file save
+- <code>ts-node</code>: TypeScript execution engine
+- <code>typescript</code>: adds optional types to JavaScript
+- <code>unique-username-generator</code>: generates unique username for testing
 
 ```bash
 ### Auth
