@@ -122,3 +122,6 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 - <code>ts-node</code>: TypeScript execution engine
 - <code>typescript</code>: adds optional types to JavaScript
 - <code>unique-username-generator</code>: generates unique username for testing
+
+
+![greenline-pos-intervie-project(ERD)](https://user-images.githubusercontent.com/19669287/182275159-7b5b7f48-0ff4-4c36-8efb-6642282cfcda.svg)
