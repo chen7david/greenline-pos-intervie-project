@@ -11,7 +11,8 @@ router.route('/order-items')
     .get(loadAuthenticated, orderItemController.find)
     .post(validator(createUser), orderItemController.create)
 
-    
+
+router.param('id', orderItemController.loadOne)
 router.route('/order-items/:id')
     .get(orderItemController.findOne)
     .patch(validator(patchUser), orderItemController.patch)

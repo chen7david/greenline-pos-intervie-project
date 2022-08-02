@@ -15,6 +15,7 @@ router.route('/products')
     .post(validator(createUser), productController.create)
 
 
+router.param('id', productController.loadOne)
 router.route('/products/:id')
     .get(productController.findOne)
     .patch(validator(patchUser), productController.patch)

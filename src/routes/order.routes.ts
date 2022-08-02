@@ -12,10 +12,11 @@ router.route('/order')
     .post(validator(createUser), orderController.create)
 
 
+router.param('id', orderController.loadOne)
 router.route('/order/:id')
     .get(orderController.findOne)
     .patch(validator(patchUser), orderController.patch)
     .delete(orderController.remove)
 
-    
+
 export default router

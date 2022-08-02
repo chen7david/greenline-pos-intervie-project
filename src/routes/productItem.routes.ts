@@ -15,10 +15,11 @@ router.route('/product-items')
     .post(validator(createUser), productItemController.create)
 
 
+router.param('id', productItemController.loadOne)
 router.route('/product-items/:id')
     .get(productItemController.findOne)
     .patch(validator(patchUser), productItemController.patch)
     .delete(productItemController.remove)
 
-    
+
 export default router

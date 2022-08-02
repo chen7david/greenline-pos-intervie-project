@@ -1,7 +1,7 @@
 # USERS
 @port = 3000
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJpYXQiOjE2NTkyNzY2NjIsImV4cCI6MTY1OTI3NzU2Mn0.RtqnlDniwvfGHdAWpFHcDVrRhAG5RMb6a2Epe8kOh3g
-@userId = 6
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NTk0NDQ4NjAsImV4cCI6MTY1OTQ0NTc2MH0.8MTLaaU5S3xFR1-dEWZJgJ8Lhk3TrGuAXk7EpMqqsXQ
+@userId = 1
 @page = 1
 @limit = 2
 

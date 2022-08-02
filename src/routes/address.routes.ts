@@ -14,11 +14,11 @@ router.route('/address')
     .get(loadAuthenticated, addressController.find)
     .post(validator(createUser), addressController.create)
 
-    
+
+router.param('id', addressController.loadOne)
 router.route('/address/:id')
     .get(addressController.findOne)
     .patch(validator(patchUser), addressController.patch)
     .delete(addressController.remove)
 
-    
 export default router

@@ -26,15 +26,13 @@ export default <T extends ModelClass<any>>(model: T) => ({
     },
 
 
-    async patch(id: number | string, data: object) {
-        const instance = await this.findOne(id)
+    async patch(instance: InstanceType<T>, data: object): Promise<InstanceType<T> | null> {
         if (!instance) throw (new Error('invalid id'))
         return instance.$query().patch(data)
     },
 
 
-    async delete(id: number | string): Promise<number> {
-        const instance = await this.findOne(id)
+    async delete(instance: InstanceType<T>): Promise<number> {
         if (!instance) throw (new Error('invalid id'))
         return instance.$query().delete()
     }

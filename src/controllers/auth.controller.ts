@@ -26,7 +26,7 @@ export async function refresh(req: Request, res: Response): Promise<void> {
     if (!user_id) throw (ApiError.badRequest('invalid token'))
     const user = await userService.findOne(user_id)
     if (!user) throw (ApiError.badRequest('invalid token'))
-    const payload = { user_id: user.id }
+    const payload = { user_id: user_id }
     res.json({
         user: user,
         accessToken: authService.signAccessToken(payload),

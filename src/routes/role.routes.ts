@@ -15,10 +15,11 @@ router.route('/roles')
     .post(validator(createUser), roleController.create)
 
 
+router.param('id', roleController.loadOne)
 router.route('/roles/:id')
     .get(roleController.findOne)
     .patch(validator(patchUser), roleController.patch)
     .delete(roleController.remove)
 
-    
+
 export default router

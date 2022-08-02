@@ -30,6 +30,11 @@ export const createCompany = createUser.keys({
     description: v.string().min(3).max(30).required(),
 })
 
+export const updateCompany = v.object().options(joiOptions).keys({
+    name: v.string().min(3).max(30).required(),
+    description: v.string().min(6).max(256).required(),
+})
+
 
 export const loginUser = v.object().options(joiOptions).keys({
     username: v.string().required(),

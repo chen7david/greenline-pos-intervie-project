@@ -15,6 +15,7 @@ router.route('/users')
     .post(validator(createUser), userController.create)
 
 
+router.param('id', userController.loadOne)
 router.route('/users/:id')
     .get(userController.findOne)
     .patch(validator(patchUser), userController.patch)

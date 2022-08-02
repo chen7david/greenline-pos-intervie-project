@@ -11,7 +11,8 @@ router.route('/permissions')
     .get(loadAuthenticated, permissionController.find)
     .post(validator(createUser), permissionController.create)
 
-    
+
+router.param('id', permissionController.loadOne)
 router.route('/permissions/:id')
     .get(permissionController.findOne)
     .patch(validator(patchUser), permissionController.patch)

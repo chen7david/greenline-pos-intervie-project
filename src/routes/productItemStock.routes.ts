@@ -12,10 +12,12 @@ router.route('/product-item-stock')
     .post(validator(createUser), productItemStockController.create)
 
 
+router.param('id', productItemStockController.loadOne)
 router.route('/product-item-stock/:id')
     .get(productItemStockController.findOne)
     .patch(validator(patchUser), productItemStockController.patch)
     .delete(productItemStockController.remove)
+
 
 
 export default router
