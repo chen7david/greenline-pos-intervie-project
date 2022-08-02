@@ -162,6 +162,18 @@ You can obtain a <code>company-id</code> by creating a new company account. When
 ```
 
 ```bash
+### Permissions
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  POST   | /api/permissions
+  PATCH  | /api/permissions/:id
+  DELETE | /api/permissions/:id
+  PATCH  | /api/permissions/:id/roles
++--------+-------------------------+
+```
+
+```bash
 ### Product
 +--------+-------------------------+
   Method | URI
