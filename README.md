@@ -31,7 +31,7 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 
 # API Documentation
 
-### Node commands:
+#### Node commands:
 - <code>dev</code>: starts server in development mode.
 - <code>start</code>: starts server in production mode.
 - <code>build</code>: creates a dest folder containing our porject in JavaScript
@@ -40,7 +40,7 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 - <code>migrate:down</code>: migrates db one migration down
 - <code>test</code>: runs tests
 
-### Utilized Modules:
+#### Utilized Modules:
 - <code>express</code>: web-server
 - <code>helmet</code>: setting various HTTP headers on express to improve security
 - <code>express-promise-router</code>: router
@@ -54,7 +54,7 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 - <code>bcrypt</code>: string encryption
 - <code>morgan</code>: HTTP request logger middleware
 
-### Utilized Development Modules:
+#### Utilized Development Modules:
 - <code>jest</code>: js testing solution
 - <code>nodemon</code>: automatically restarting node application on file save
 - <code>ts-node</code>: TypeScript execution engine
@@ -63,7 +63,37 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 
 
 ## Routes:
+#### Auth
+**NOTE:** Becuase this api support the registration of multiple <code>Companies</code>, a valid <code>company-id</code> should be passed along in the request header when calling the following routes:
+- <code> /api/users</code>
+- <code> /api/register</code>
+- <code> /auth/login</code>
+
+The <code>company-id</code> should be placed in the request header as follows: 
+```http
+POST http://some-domain/api/users
+Content-Type: application/json
+x-company-id: your-company-id
+```
+You can obtain a <code>company-id</code> by creating a new company account. When you create a company account, a default user with the role of <code>admin</code> is automatically created for you that you can use to manage your company-profile. This <code>admin</code> user can retrieve the company-id by calling <code>/api/companie-self</code>.
 ```bash
+
+### Company
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/company-name-available?name=some-username
+  GET    | /api/companies
+  GET    | /api/companie-self
+  POST   | /api/companies
+  PATCH  | /api/companies/:id
+  DELETE | /api/companies/:id
+  GET    | /api/companies/:id/users
+  GET    | /api/companies/:id/orders
+  GET    | /api/companies/:id/products
+  POST   | /api/companies/:id/products
++--------+-------------------------+
+
 ### Auth
 +--------+-------------------------+
   Method | URI
@@ -81,6 +111,7 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
   GET    | /api/users
   GET    | /api/username-available?username=some-username
   POST   | /api/users
+  POST   | /api/register
   GET    | /api/users/:id
   PATCH  | /api/users/:id
   DELETE | /api/users/:id
