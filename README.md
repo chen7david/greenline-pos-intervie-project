@@ -32,27 +32,27 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 
 ## Check List:
 
-### main criteria:
-- [] Company (should have a name)
-- [] Customer that belong to company (user can only belong to 1 company and should have a name)
-- [] Products (belong to only 1 company, have a name)
-- [] Sales (made up of products)
+### Main Criteria:
+- [-] Company (should have a name)
+- [-] Customer that belong to company (user can only belong to 1 company and should have a name)
+- [-] Products (belong to only 1 company, have a name)
+- [-] Sales (made up of products)
 
 
-### predural steps:
-- [X] determine functional requirements
-- [X] write use case
-- [X] create list of endpoints
-- [X] determine db enties and relationships (ERD)
+### Procedural Steps:
+- [X] Determine functional requirements
+- [X] Write use case
+- [X] Create list of endpoints
+- [X] Determine db enties and relationships (ERD)
 - [X] create migration schemas
-- [X] write models
-- [X] write services
-- [] test services
-- [X] setup express server
-- [X] write controllers
-- [X] write routes and mount to server
-- [] test controllers
-- [] add nice to have functionality
+- [X] Write models
+- [X] Write services
+- [-] Test services
+- [X] Setup express server
+- [X] Write controllers
+- [X] Write routes and mount to server
+- [-] Test controllers
+- [-] Add nice to have functionality
 
 
 ## Functional Requirements:
