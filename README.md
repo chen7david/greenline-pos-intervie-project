@@ -29,93 +29,37 @@ Also, if there are any higher level concepts that you’d want to implement if t
 
 Finally, if you have any GitHub or online samples you think we should see, we'd love to check those out too!
 
+# API Documentation
 
-## Check List:
+### Node commands:
+- <code>dev</code>: starts server in development mode.
+- <code>start</code>: starts server in production mode.
+- <code>build</code>: creates a dest folder containing our porject in JavaScript
+- <code>knex</code>: allows you to run knex from subdirectory.
+- <code>migrate:up</code>: migrates db one migration up
+- <code>migrate:down</code>: migrates db one migration down
+- <code>test</code>: runs tests
 
-### Main Criteria:
-- [-] Company (should have a name)
-- [-] Customer that belong to company (user can only belong to 1 company and should have a name)
-- [-] Products (belong to only 1 company, have a name)
-- [-] Sales (made up of products)
+### Utilized Modules:
+- <code>express</code>: web-server
+- <code>helmet</code>: setting various HTTP headers on express to improve security
+- <code>express-promise-router</code>: router
+- <code>jsonwebtoken</code>: jwt
+- <code>knex</code>: query builder
+- <code>sqlite3</code>: db interface client
+- <code>objection</code>: ORM
+- <code>pluralize</code>: package that pluralized noun strings
+- <code>joi</code>: validation
+- <code>dotenv</code>: enviroment variable loading
+- <code>bcrypt</code>: string encryption
+- <code>morgan</code>: HTTP request logger middleware
 
-
-### Procedural Steps:
-- [X] Determine functional requirements
-- [X] Write use case
-- [X] Create list of endpoints
-- [X] Determine db enties and relationships (ERD)
-- [X] create migration schemas
-- [X] Write models
-- [X] Write services
-- [-] Test services
-- [X] Setup express server
-- [X] Write controllers
-- [X] Write routes and mount to server
-- [-] Test controllers
-- [-] Add nice to have functionality
-
-
-## Functional Requirements:
-
-### Auth
-#### actor: non-registered-user
-
-- FR01   | should be able to create a new company.
-- FR02   | should be able to register a new account.
-- FR03   | should be able to login.
-- FR04   | should be able to stay logged-in with a sliding windown extention period of 30 days.
-- FR00   | should be able to change password.
-- FR00   | should be able to verify through email.
-
-
-
-### Company
-#### actor: admin-user
-
-- FR05   | should be able change company name.
-- FR06   | should be able change company description.
-
-
-
-### Roles & Permissions
-#### actor: admin-user should be able
-
-- FR07   | assign and revoke roles from user.
-- FR08   | to register a new roles.
-- FR09   | to delete custom roles.
-- FR10   | to change role scope roles by adding and removing permissions.
-
-
-
-### Products A
-#### actor: seller-user
-
-- FR11   | should be able to create a new product.
-- FR12   | should be able to view all products of their company.
-- FR13   | should be able to add product options to the respective product.
-- FR14   | should be able to add and remove stock from product options.
-
-
-
-### Products B
-#### actor: customer-user
-
-- FR16   | should be able to view all products of the company where they registered their account.
-- FR17   | should be able to create an order based on items in their shoping cart.
-- FR18   | should be able to know when a product is out of stock before creating an order.
-- FR19   | should be able to cancel request cancelation of an order.
-
-
-
-#### ### User:Seller:Product
-
-- FR20   | should be able to view all orders.
-- FR21   | should be able to query based on order status.
-- FR22   | should be able to update order status manually.
-- FR23   | should be able to cancel an order.
-- FR24   | should be able to generate an invoice based on order.
-- FR25   | should be able to handle order cancelations/returns.
-
+### Utilized Development Modules:
+- <code>jest</code>: js testing solution
+- <code>nodemon</code>: automatically restarting node application on file save
+- <code>ts-node</code>: TypeScript execution engine
+- <code>typescript</code>: adds optional types to JavaScript
+- <code>unique-username-generator</code>: generates unique username for testing
 
 
 ## Routes:
@@ -157,35 +101,95 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 +--------+-------------------------+
 ```
 
-### Node commands:
-- <code>dev</code>: starts server in development mode.
-- <code>start</code>: starts server in production mode.
-- <code>build</code>: creates a dest folder containing our porject in JavaScript
-- <code>knex</code>: allows you to run knex from subdirectory.
-- <code>migrate:up</code>: migrates db one migration up
-- <code>migrate:down</code>: migrates db one migration down
-- <code>test</code>: runs tests
+# API Development Cycle Utilities
 
-### Utilized Modules:
-- <code>express</code>: web-server
-- <code>helmet</code>: setting various HTTP headers on express to improve security
-- <code>express-promise-router</code>: router
-- <code>jsonwebtoken</code>: jwt
-- <code>knex</code>: query builder
-- <code>sqlite3</code>: db interface client
-- <code>objection</code>: ORM
-- <code>pluralize</code>: package that pluralized noun strings
-- <code>joi</code>: validation
-- <code>dotenv</code>: enviroment variable loading
-- <code>bcrypt</code>: string encryption
-- <code>morgan</code>: HTTP request logger middleware
+## Check List:
 
-### Utilized Development Modules:
-- <code>jest</code>: js testing solution
-- <code>nodemon</code>: automatically restarting node application on file save
-- <code>ts-node</code>: TypeScript execution engine
-- <code>typescript</code>: adds optional types to JavaScript
-- <code>unique-username-generator</code>: generates unique username for testing
+### Main Criteria:
+- [x] Company (should have a name)
+- [x] Customer that belong to company (user can only belong to 1 company and should have a name)
+- [x] Products (belong to only 1 company, have a name)
+- [x] Sales (made up of products)
 
 
-![greenline-pos-intervie-project(ERD)](https://user-images.githubusercontent.com/19669287/182275159-7b5b7f48-0ff4-4c36-8efb-6642282cfcda.svg)
+### Procedural Steps:
+- [X] Determine functional requirements
+- [X] Write use case
+- [X] Create list of endpoints
+- [X] Determine db enties and relationships (ERD)
+- [X] create migration schemas
+- [X] Write models
+- [X] Write services
+- [-] Test services
+- [X] Setup express server
+- [X] Write controllers
+- [X] Write routes and mount to server
+- [-] Test controllers
+- [-] Add nice to have functionality
+
+
+## Functional Requirements:
+
+
+### Auth
+<code>actor: non-registered-user</code>
+
+- FR01   | should be able to create a new company.
+- FR02   | should be able to register a new account.
+- FR03   | should be able to login.
+- FR04   | should be able to stay logged-in with a sliding windown extention period of 30 days.
+- FR00   | should be able to change password.
+- FR00   | should be able to verify through email.
+
+
+### Company
+<code>actor: admin-user</code>
+
+- FR05   | should be able change company name.
+- FR06   | should be able change company description.
+
+
+### Roles & Permissions
+<code>actor: admin-user</code>
+
+- FR07   | should be able to assign and revoke roles from user.
+- FR08   | should be able to to register a new roles.
+- FR09   | should be able to to delete custom roles.
+- FR10   | should be able to to change role scope roles by adding and removing permissions.
+
+
+### Products A
+<code>actor: seller-user</code>
+
+- FR11   | should be able to create a new product.
+- FR12   | should be able to view all products of their company.
+- FR13   | should be able to add product options to the respective product.
+- FR14   | should be able to add and remove stock from product options.
+
+
+### Products B
+<code>actor: customer-user</code>
+
+- FR16   | should be able to view all products of the company where they registered their account.
+- FR17   | should be able to create an order based on items in their shoping cart.
+- FR18   | should be able to know when a product is out of stock before creating an order.
+- FR19   | should be able to cancel request cancelation of an order.
+
+
+<code>User:Seller:Product</code>
+
+- FR20   | should be able to view all orders.
+- FR21   | should be able to query based on order status.
+- FR22   | should be able to update order status manually.
+- FR23   | should be able to cancel an order.
+- FR24   | should be able to generate an invoice based on order.
+- FR25   | should be able to handle order cancelations/returns.
+
+
+
+
+## DB Schema (ERD)
+ The DB schema below is a graphical representation of the entities and their relationships. 
+
+![greenline-pos-intervie-project(ERD) background](https://user-images.githubusercontent.com/19669287/182287106-32d55fdb-c886-4064-85c7-eb5cfb6f8d09.svg)
+
