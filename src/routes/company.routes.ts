@@ -5,7 +5,7 @@ import { createUser, patchUser, validator } from '../middleware/validation.middl
 
 const router = Router()
 
-router.get('/companyname-available', companyController.companynameIsAvailable)
+router.get('/companyname-available', companyController.companyNameIsAvailable)
 
 router.route('/companies')
     .get(loadAuthenticated, companyController.find)

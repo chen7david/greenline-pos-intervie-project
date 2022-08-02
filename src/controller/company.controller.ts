@@ -42,9 +42,9 @@ export async function remove(req: Request, res: Response): Promise<void> {
 
 /* CUSTOM */
 
-export async function companynameIsAvailable(req: Request, res: Response): Promise<void> {
+export async function companyNameIsAvailable(req: Request, res: Response): Promise<void> {
     const { name } = req.params
     let available: boolean = true
-    if (name) available = await companyService.findOneByCompanyname(name) ? false : true
+    if (name) available = await companyService.findOneByCompanyName(name) ? false : true
     res.json({ available })
 }

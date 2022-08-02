@@ -44,9 +44,9 @@ export async function remove(req: Request, res: Response): Promise<void> {
 /* CUSTOM */
 
 
-export async function rolenameIsAvailable(req: Request, res: Response): Promise<void> {
+export async function roleNameIsAvailable(req: Request, res: Response): Promise<void> {
     const { name } = req.params
     let available: boolean = true
-    if (name) available = await roleService.findOneByRolername(name) ? false : true
+    if (name) available = await roleService.findOneByRolerName(name) ? false : true
     res.json({ available })
 }

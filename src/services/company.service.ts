@@ -8,7 +8,7 @@ export default {
     ...mixinService(Company),
 
 
-    async findOneByCompanyname(name: string) {
+    async findOneByCompanyName(name: string) {
         return this.findOneByKey('name', name)
     },
 

@@ -8,7 +8,7 @@ export default {
     ...mixinService(Role),
 
     
-    async findOneByRolername(name: string){
+    async findOneByRolerName(name: string){
         return this.findOneByKey('name', name)
     },
 }

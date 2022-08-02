@@ -5,7 +5,7 @@ import { createUser, patchUser, validator } from '../middleware/validation.middl
 
 const router = Router()
 
-router.get('/rolename-available', roleController.rolenameIsAvailable)
+router.get('/rolename-available', roleController.roleNameIsAvailable)
 
 router.route('/roles')
     .get(loadAuthenticated, roleController.find)
