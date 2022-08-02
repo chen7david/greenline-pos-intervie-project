@@ -75,7 +75,7 @@ POST http://some-domain/api/users
 Content-Type: application/json
 x-company-id: your-company-id
 ```
-You can obtain a <code>company-id</code> by creating a new company account. When you create a company account, a default user with the role of <code>admin</code> is automatically created for you that you can use to manage your company-profile. This <code>admin</code> user can retrieve the company-id by calling <code>/api/companie-self</code>.
+You can obtain a <code>company-id</code> by creating a new company account. When you create a company account, a default user with the role of <code>admin</code> is automatically created for you that you can use to manage your company-profile. This <code>admin</code> user can retrieve the company-id by calling <code>/api/company</code>.
 ```bash
 
 ### Company
@@ -84,7 +84,7 @@ You can obtain a <code>company-id</code> by creating a new company account. When
 +--------+-------------------------+
   GET    | /api/company-name-available?name=some-username
   GET    | /api/companies
-  GET    | /api/companie-self
+  GET    | /api/company
   POST   | /api/companies
   PATCH  | /api/companies/:id
   DELETE | /api/companies/:id
@@ -157,6 +157,8 @@ You can obtain a <code>company-id</code> by creating a new company account. When
 - [X] Write routes and mount to server
 - [-] Test controllers
 - [-] Add nice to have functionality
+- [-] Write vailidation schemas
+- [-] Fix availability scope problem
 
 
 ## Functional Requirements:

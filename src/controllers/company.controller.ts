@@ -19,8 +19,8 @@ export async function findOne(req: Request, res: Response): Promise<void> {
 
 
 export async function create(req: Request, res: Response): Promise<void> {
-    const id: string = req.params.id
     const data = req.body
+    console.log(data)
     const instance = await companyService.create(data)
     res.json(instance)
 }

@@ -13,15 +13,21 @@ export const invalidUsernameSchemaError = v.object({ allowUnknown: true }).keys(
     username: v.string().max(0).messages({ 'string.max': `invalid "username"` }),
 })
 
-
 export const createUser = v.object().options(joiOptions).keys({
     username: v.string().min(3).max(30).required(),
-    password: v.string().min(6).max(256).required()
+    password: v.string().min(6).max(256).required(),
+    email: v.string().email().required(),
 })
 
 
 export const patchUser = v.object().options(joiOptions).keys({
     password: v.string().min(6).max(256)
+})
+
+
+export const createCompany = createUser.keys({
+    name: v.string().min(3).max(30).required(),
+    description: v.string().min(3).max(30).required(),
 })
 
 

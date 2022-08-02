@@ -1,7 +1,7 @@
 import Router from 'express-promise-router'
 import * as companyController from '../controllers/company.controller'
 import { loadAuthenticated } from '../middleware/auth.middleware'
-import { createUser, patchUser, validator } from '../middleware/validation.middleware'
+import { createCompany, patchUser, validator } from '../middleware/validation.middleware'
 
 
 const router = Router()
@@ -12,7 +12,7 @@ router.get('/company-name-available', companyController.companyNameIsAvailable)
 
 router.route('/companies')
     .get(loadAuthenticated, companyController.find)
-    .post(validator(createUser), companyController.create)
+    .post(validator(createCompany), companyController.create)
 
 
 router.route('/companies/:id')
