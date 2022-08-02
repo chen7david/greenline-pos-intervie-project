@@ -76,8 +76,8 @@ Content-Type: application/json
 x-company-id: your-company-id
 ```
 You can obtain a <code>company-id</code> by creating a new company account. When you create a company account, a default user with the role of <code>admin</code> is automatically created for you that you can use to manage your company-profile. This <code>admin</code> user can retrieve the company-id by calling <code>/api/company</code>.
-```bash
 
+```bash
 ### Company
 +--------+-------------------------+
   Method | URI
@@ -93,44 +93,141 @@ You can obtain a <code>company-id</code> by creating a new company account. When
   GET    | /api/companies/:id/products
   POST   | /api/companies/:id/products
 +--------+-------------------------+
+```
 
+```bash
+### User
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/users
+  GET    | /api/username-available?username=some-username
+  POST   | /api/users
+  GET    | /api/users/:id
+  PATCH  | /api/users/:id
+  DELETE | /api/users/:id
+  GET    | /api/users/:id/orders
+  GET    | /api/users/:id/emails
+  POST   | /api/users/:id/emails
+  GET    | /api/users/:id/addresses
+  POST   | /api/users/:id/addresses
+  PATCH  | /api/users/:id/roles
++--------+-------------------------+
+```
+
+```bash
 ### Auth
 +--------+-------------------------+
   Method | URI
 +--------+-------------------------+
   POST   | /api/auth/login
   POST   | /api/auth/refresh
+  POST   | /api/auth/password-recovery
+  POST   | /api/auth/recover-password
+  POST   | /api/auth/email-verification
+  POST   | /api/auth/verify-email
 +--------+-------------------------+
 ```
 
 ```bash
-### User
+### Address
 +--------+-------------------------+
   Method | URI
 +--------+-------------------------+
-  GET    | /api/users
-  GET    | /api/username-available?username=some-username
-  POST   | /api/users
-  POST   | /api/register
-  GET    | /api/users/:id
-  PATCH  | /api/users/:id
-  DELETE | /api/users/:id
+  PATCH  | /api/addresses/:id
+  DELETE | /api/addresses/:id
 +--------+-------------------------+
 ```
 
 ```bash
-### User
+### Email
 +--------+-------------------------+
   Method | URI
 +--------+-------------------------+
-  GET    | /api/users
-  GET    | /api/username-available?username=some-username
-  POST   | /api/users
-  GET    | /api/users/:id
-  PATCH  | /api/users/:id
-  DELETE | /api/users/:id
+  PATCH  | /api/email/:id
+  DELETE | /api/email/:id
 +--------+-------------------------+
 ```
+
+```bash
+### Role
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  POST   | /api/roles
+  PATCH  | /api/roles/:id
+  DELETE | /api/roles/:id
+  PATCH  | /api/roles/:id/users
++--------+-------------------------+
+```
+
+```bash
+### Product
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  PATCH  | /api/products/:id
+  DELETE | /api/products/:id
+  POST   | /api/products/:id/product-variations
++--------+-------------------------+
+```
+
+```bash
+### Product Variation Options
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/products/:id/variation-options
+  POST   | /api/products/:id/variation-options
++--------+-------------------------+
+```
+
+```bash
+### Variation Options
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/variation-options/:id/variation-values
+  DELETE | /api/variation-options/:id
++--------+-------------------------+
+```
+
+```bash
+### Variation Values
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  DELETE | /api/variation-values/:id
++--------+-------------------------+
+```
+
+```bash
+### Product Variations
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/product-variations/:id/stock
+  POST   | /api/product-variations/:id/stock
+  GET    | /api/product-variations/:id/images
+  POST   | /api/product-variations/:id/images
+  DELETE | /api/product-variations/:id
++--------+-------------------------+
+```
+
+```bash
+### Orders
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /api/product-variations/:id/stock
+  POST   | /api/product-variations/:id/stock
+  GET    | /api/product-variations/:id/images
+  POST   | /api/product-variations/:id/images
+  DELETE | /api/product-variations/:id
++--------+-------------------------+
+```
+
+
 
 # API Development Cycle Utilities
 
