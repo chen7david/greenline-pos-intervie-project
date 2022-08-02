@@ -19,6 +19,12 @@ app.use('/api', router.companyRoutes)
 app.use('/api', router.userRoutes)
 app.use('/api', router.roleRoutes)
 app.use('/api', router.permissionRoutes)
+app.use('/api', router.productRoutes)
+app.use('/api', router.productItemRoutes)
+app.use('/api', router.productItemStockRoutes)
+app.use('/api', router.addressRoutes)
+app.use('/api', router.orderRoutes)
+app.use('/api', router.orderItemRoutes)
 app.use(expressErrorHandler)
 
 app.listen(config.server.port, () => {

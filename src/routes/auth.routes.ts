@@ -1,6 +1,8 @@
 import Router from 'express-promise-router'
-import * as authController from '../controller/auth.controller'
+import * as authController from '../controllers/auth.controller'
 import { validator, loginUser } from '../middleware/validation.middleware'
+
+
 const router = Router()
 
 
