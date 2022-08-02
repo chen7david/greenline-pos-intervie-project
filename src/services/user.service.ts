@@ -1,7 +1,7 @@
 import User from '../models/user.model'
 import mixinService from './base.service'
-import Company from 'models/company.model'
 import { ModelClass } from 'objection'
+
 export default {
 
 

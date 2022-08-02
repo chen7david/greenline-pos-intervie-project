@@ -30,7 +30,8 @@ export async function findOne(req: Request, res: Response): Promise<void> {
 
 export async function create(req: Request, res: Response): Promise<void> {
     const data = req.body
-    const instance = await service.create(data)
+    const $user = res.locals.$user
+    const instance = await service.create($user, data)
     res.json(instance)
 }
 
