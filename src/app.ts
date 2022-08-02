@@ -1,8 +1,6 @@
-import config from '../config/default'
 import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import url from 'url'
 import * as router from './routes/index.routes'
 import { expressErrorHandler } from './utils/error.utility'
 
@@ -27,7 +25,5 @@ app.use('/api', router.orderRoutes)
 app.use('/api', router.orderItemRoutes)
 app.use(expressErrorHandler)
 
-app.listen(config.server.port, () => {
-    console.log("Server running at: %s", url.format(config.server))
-})
+export default app
 
