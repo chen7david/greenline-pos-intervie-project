@@ -220,6 +220,7 @@ You can obtain a <code>company-id</code> by creating a new company account. When
 
 ## Product Structure
  
+![Database ER diagram (crow's foot) (1)](https://user-images.githubusercontent.com/19669287/182407393-5b51df4c-3255-40b9-a9c8-480e98ce48ff.svg)
 
 ## DB Schema (ERD)
  The DB schema below is a graphical representation of the entities and their relationships. 
