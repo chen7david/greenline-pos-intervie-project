@@ -16,6 +16,11 @@ export default {
     },
 
 
+    async findOneByCompanyId(companyId: string) {
+        return this.findOneByKey('company_id', companyId)
+    },
+
+
     async create(data: ICreate): Promise<any> {
 
         return Company.transaction(async (trx: Transaction): Promise<any> => {
