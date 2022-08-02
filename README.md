@@ -56,79 +56,66 @@ Finally, if you have any GitHub or online samples you think we should see, we'd 
 
 
 ## Functional Requirements:
-```bash
+
 ### Auth
-actor: non-registered-user
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR01   | should be able to create a new company.
-  FR02   | should be able to register a new account.
-  FR03   | should be able to login.
-  FR04   | should be able to stay logged-in with a sliding windown extention period of 30 days.
-  FR00   | should be able to change password.
-  FR00   | should be able to verify through email.
-+--------+-------------------------+
+#### actor: non-registered-user
+
+- FR01   | should be able to create a new company.
+- FR02   | should be able to register a new account.
+- FR03   | should be able to login.
+- FR04   | should be able to stay logged-in with a sliding windown extention period of 30 days.
+- FR00   | should be able to change password.
+- FR00   | should be able to verify through email.
+
 
 
 ### Company
-actor: admin-user
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR05   | should be able change company name.
-  FR06   | should be able change company description.
-+--------+-------------------------+
+#### actor: admin-user
+
+- FR05   | should be able change company name.
+- FR06   | should be able change company description.
+
 
 
 ### Roles & Permissions
-actor: admin-user
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR07   | should be able assign and revoke roles from user.
-  FR08   | should be able to register a new roles.
-  FR09   | should be able to delete custom roles.
-  FR10   | should be able to change role scope roles by adding and removing permissions.
-+--------+-------------------------+
+#### actor: admin-user should be able
+
+- FR07   | assign and revoke roles from user.
+- FR08   | to register a new roles.
+- FR09   | to delete custom roles.
+- FR10   | to change role scope roles by adding and removing permissions.
+
 
 
 ### Products A
-actor: seller-user
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR11   | should be able to create a new product.
-  FR12   | should be able to view all products of their company.
-  FR13   | should be able to add product options to the respective product.
-  FR14   | should be able to add and remove stock from product options.
-+--------+-------------------------+
+#### actor: seller-user
+
+- FR11   | should be able to create a new product.
+- FR12   | should be able to view all products of their company.
+- FR13   | should be able to add product options to the respective product.
+- FR14   | should be able to add and remove stock from product options.
+
 
 
 ### Products B
-actor: customer-user
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR16   | should be able to view all products of the company where they registered their account.
-  FR17   | should be able to create an order based on items in their shoping cart.
-  FR18   | should be able to know when a product is out of stock before creating an order.
-  FR19   | should be able to cancel request cancelation of an order.
-+--------+-------------------------+
+#### actor: customer-user
+
+- FR16   | should be able to view all products of the company where they registered their account.
+- FR17   | should be able to create an order based on items in their shoping cart.
+- FR18   | should be able to know when a product is out of stock before creating an order.
+- FR19   | should be able to cancel request cancelation of an order.
 
 
-### User:Seller:Product
-+--------+-------------------------+
-  FRID   | ACTION
-+--------+-------------------------+
-  FR20   | should be able to view all orders.
-  FR21   | should be able to query based on order status.
-  FR22   | should be able to update order status manually.
-  FR23   | should be able to cancel an order.
-  FR24   | should be able to generate an invoice based on order.
-  FR25   | should be able to handle order cancelations/returns.
-+--------+-------------------------+
-```
+
+#### ### User:Seller:Product
+
+- FR20   | should be able to view all orders.
+- FR21   | should be able to query based on order status.
+- FR22   | should be able to update order status manually.
+- FR23   | should be able to cancel an order.
+- FR24   | should be able to generate an invoice based on order.
+- FR25   | should be able to handle order cancelations/returns.
+
 
 
 ## Routes:
